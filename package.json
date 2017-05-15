@@ -1,6 +1,6 @@
 {
   "name": "novnc-browser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An HTML5 VNC client",
   "main": "index.js",
   "directories": {
