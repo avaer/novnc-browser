@@ -6,11 +6,21 @@
 </style>
 </head>
 <body>
+<script>
+window.module = {
+  exports: {},
+};
+</script>
 <script src="index.js"></script>
 <script>
+const {exports: novnc} = window.module;
+window.module = {
+  exports: {},
+};
+
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
-const api = connect({
+const c = novnc.connect({
   canvas: canvas,
   host: document.location.hostname,
   port: parseInt(document.location.port, 10),
@@ -21,13 +31,13 @@ const api = connect({
 });
 
 document.body.addEventListener('keydown', e => {
-  api.handleKeydown(e);
+  c.handleKeydown(e);
 });
 document.body.addEventListener('keypress', e => {
-  api.handleKeypress(e);
+  c.handleKeypress(e);
 });
 document.body.addEventListener('keyup', e => {
-  api.handleKeyup(e);
+  c.handleKeyup(e);
 });
 </script>
  </body>
