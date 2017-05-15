@@ -2310,6 +2310,9 @@ RFB.encodingHandlers = {
                 };
 
                 const _cleanup = () => {
+                  img.onload = null;
+                  img.onerror = null;
+
                   URL.revokeObjectURL(u);
                 };
                 break;
