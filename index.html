@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; }
+</style>
+</head>
+<body>
+<script src="ui.js"></script>
+<script>
+const canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+const api = connect({
+  canvas: canvas,
+  host: document.location.hostname,
+  port: parseInt(document.location.port, 10),
+  path: '/',
+  ondisconnect: () => {
+    console.warn('disconnected');
+  },
+});
+
+document.body.addEventListener('keydown', e => {
+  api.handleKeydown(e);
+});
+document.body.addEventListener('keypress', e => {
+  api.handleKeypress(e);
+});
+document.body.addEventListener('keyup', e => {
+  api.handleKeyup(e);
+});
+</script>
+ </body>
+</html>
