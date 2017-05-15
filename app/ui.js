@@ -37,6 +37,9 @@ const _connect = ({
     handleKeydown: keyboard._eventHandlers.keydown,
     handleKeypress: keyboard._eventHandlers.keypress,
     handleKeyup: keyboard._eventHandlers.keyup,
+    disconnect: () => {
+      rfb.disconnect();
+    },
   };
 };
 
