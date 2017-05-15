@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "PATH=$PATH:node_modules/karma/bin karma start karma.conf.js",
-    "prepublish": "node ./utils/use_require.js --as commonjs"
+    "prepublish": "node ./build.js && node ./utils/use_require.js --as commonjs"
   },
   "repository": {
     "type": "git",
